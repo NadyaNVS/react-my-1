@@ -1,0 +1,27 @@
+.nav {
+    grid-area: n;
+    background-color: #333;
+    border-radius: 4px;
+    padding: 20px;
+    color: #fff;
+  }
+
+.list {
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.item a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+a.active {
+  color: gold;
+}

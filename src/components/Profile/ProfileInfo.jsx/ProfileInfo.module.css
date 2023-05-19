@@ -1,0 +1,9 @@
+.descriptionBlock {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.infoBlock img {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
