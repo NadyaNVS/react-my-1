@@ -4,6 +4,8 @@ grid-template-columns: 2fr 10fr;
 }
 
 .dialogsItems {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
 }
 
@@ -16,20 +18,47 @@ grid-template-columns: 2fr 10fr;
   color: black;
 }
 
+.dialogsItems img {
+  display: block;
+  margin-right: 10px;
+  width: 50px;
+}
+
 .dialog {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   padding: 10px;
 }
 
-/* .dialog.active {
+/* .dialog.active  a{
   color: black;
 } */
 
 
 .messages {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
+  width: 600px;
+  height: 500px;
+  overflow: hidden scroll;
+  margin-left: auto;
+  background-color: white;
+  /* height: max-content; */
 
 }
 
 .message {
   padding: 10px;
+  margin: 15px;
+  width: fit-content;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.message:nth-child(2n) {
+  align-self: flex-end;
+  background-color: rgb(45, 136, 189);
 }
