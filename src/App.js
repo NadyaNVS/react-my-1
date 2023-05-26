@@ -9,13 +9,14 @@ import logo from "./logo.svg";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import Friends from './components/Friends/Friends';
 
 function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header img={logo} />
-        <Navbar />
+        <Navbar state={props.state.friendsSide} />
         <div className="app-content-wrapper">
           <Routes>
             <Route path="/profile" element={<Profile state={props.state.profilePage} />} />
@@ -23,6 +24,7 @@ function App(props) {
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/friends" element={<Friends />} />
           </Routes>
         </div>
       </div>

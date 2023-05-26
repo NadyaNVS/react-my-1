@@ -22,6 +22,25 @@ let state = {
             {id: 5, name: 'Maria'},
             {id: 6, name: 'Alex'},
         ]
+    },
+    friendsSide: {
+        friends: [
+            {
+                id: 1,
+                src: 'https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png',
+                alt: 'ava',
+            },
+            {
+                id: 2,
+                src: 'https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png',
+                alt: 'ava',
+            },
+            {
+                id: 3,
+                src: 'https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png',
+                alt: 'ava',
+            },
+        ]
     }
 };
 

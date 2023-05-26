@@ -1,18 +1,19 @@
-import React from "react";
-import s from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import s from './Navbar.module.css';
+import {NavLink} from 'react-router-dom';
+import FriendsList from '../Friends/FriendsList/FriendsList';
 
-const getStyleForNavLink = ({ isActive }) =>
+const getStyleForNavLink = ({isActive}) =>
   isActive
     ? {
-        cursor: "default",
-        color: "gold",
-        textDecoration: "none",
+        cursor: 'default',
+        color: 'gold',
+        textDecoration: 'none',
         padding: 5,
       }
-    : { padding: 5 };
+    : {padding: 5};
 
-function Navbar() {
+function Navbar(props) {
   return (
     <nav className={s.nav}>
       <ul className={s.list}>
@@ -41,6 +42,12 @@ function Navbar() {
             Settings
           </NavLink>
         </li>
+        <li className={s.item}>
+          <NavLink to="/friends" style={getStyleForNavLink}>
+            Friends
+          </NavLink>
+        </li>
+        <FriendsList friends={props.state.friends} />
       </ul>
     </nav>
   );

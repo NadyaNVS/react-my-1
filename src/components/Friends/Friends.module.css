@@ -1,0 +1,11 @@
+/* .friendsItems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.friendItem img {
+    display: block;
+    margin-right: 10px;
+    width: 50px;
+  } */
