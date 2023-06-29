@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from 'react-router-dom';
-import FriendsList from '../Friends/FriendsList/FriendsList';
+import FriendsListContainer from '../Friends/FriendsList/FriendsListConainer';
 
 const getStyleForNavLink = ({isActive}) =>
   isActive
@@ -47,7 +47,9 @@ function Navbar(props) {
             Friends
           </NavLink>
         </li>
-        <FriendsList friends={props.state.friends} />
+        <FriendsListContainer
+        // store={props.store}
+        />
       </ul>
     </nav>
   );

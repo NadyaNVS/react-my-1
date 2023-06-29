@@ -16,13 +16,17 @@ function App(props) {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header img={logo} />
-        <Navbar state={props.state.friendsSide} />
+        <Navbar
+        // store={props.store}
+        />
         <div className="app-content-wrapper">
           <Routes>
             <Route path="/profile" element={<Profile
-              store={props.store} />} />
+            // store={props.store}
+            />} />
             <Route path="/dialogs/*" element={<DialogsContainer
-              store={props.store} />} />
+            // store={props.store} 
+            />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
