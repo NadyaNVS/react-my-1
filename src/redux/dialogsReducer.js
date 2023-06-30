@@ -11,12 +11,12 @@ let initialState = {
         {id: 6, message: 'No'},
     ],
     dialogs: [
-        {id: 1, name: 'Herman'},
-        {id: 2, name: 'Joe'},
-        {id: 3, name: 'Love'},
-        {id: 4, name: 'Anna'},
-        {id: 5, name: 'Maria'},
-        {id: 6, name: 'Alex'},
+        {id: 1, userId: 'Herman', name: 'Herman'},
+        {id: 2, userId: 'Joe', name: 'Joe'},
+        {id: 3, userId: 'Love', name: 'Love'},
+        {id: 4, userId: 'Anna', name: 'Anna'},
+        {id: 5, userId: 'Maria', name: 'Maria'},
+        {id: 6, userId: 'Alex', name: 'Alex'},
     ],
     newMessageText: "",
 }

@@ -6,8 +6,8 @@ import s from './Dialogs.module.css';
 const Dialogs = (props) => {
   let state = props.dialogsPage;
 
-  let dialogsElements = state.dialogs.map((dialog, index) => (
-    <DialogItem key={index} name={dialog.name} id={dialog.id} />
+  let dialogsElements = state.dialogs.map((dialog) => (
+    <DialogItem key={dialog.id} name={dialog.name} id={dialog.userId} />
   ));
 
   let messagesElements = state.messages.map((message, index) => (
