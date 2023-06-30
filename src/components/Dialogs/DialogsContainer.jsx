@@ -17,7 +17,6 @@ let mapDispatchToProps = (dispatch) => {
       dispatch(addMessageCreator());
     },
     updateNewMessageText: (message) => {
-      console.log('change');
       let action = updateNewMessageTextCreator(message);
       dispatch(action);
     },
