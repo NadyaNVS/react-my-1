@@ -4,8 +4,15 @@
     gap: 5px;
 }
 
-.friendItem img {
-    display: block;
+.friendItem {
     margin-right: 10px;
     width: 50px;
+    border-radius: 50%;
+}
+
+.friendItem img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 50%;
   }

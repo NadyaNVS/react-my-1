@@ -11,12 +11,12 @@ let initialState = {
         {id: 6, message: 'No'},
     ],
     dialogs: [
-        {id: 1, userId: 'Herman', name: 'Herman'},
-        {id: 2, userId: 'Joe', name: 'Joe'},
-        {id: 3, userId: 'Love', name: 'Love'},
-        {id: 4, userId: 'Anna', name: 'Anna'},
-        {id: 5, userId: 'Maria', name: 'Maria'},
-        {id: 6, userId: 'Alex', name: 'Alex'},
+        {id: 1, userId: 'Herman', avatar: 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp', name: 'Herman'},
+        {id: 2, userId: 'Joe', avatar: 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp', name: 'Joe'},
+        {id: 3, userId: 'Love', avatar: 'https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png', name: 'Love'},
+        {id: 4, userId: 'Anna', avatar: 'https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png', name: 'Anna'},
+        {id: 5, userId: 'Maria', avatar: 'https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png', name: 'Maria'},
+        {id: 6, userId: 'Alex', avatar: 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp', name: 'Alex'},
     ],
     newMessageText: "",
 }
@@ -24,23 +24,24 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE: {
+        case ADD_MESSAGE:
             let newMessage = {
                 id: 7,
                 message: state.newMessageText,
             };
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages]
-            stateCopy.messages.push(newMessage);
-            stateCopy.newMessageText = "";
-            return stateCopy;
-        }
+            return {
+                ...state,
+                messages: [...state.messages, newMessage],
+                newMessageText: "",
+            };
 
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            let stateCopy = {...state}
-            stateCopy.newMessageText = action.newTextMessage;
-            return stateCopy;
-        }
+
+        case UPDATE_NEW_MESSAGE_TEXT:
+            return {
+                ...state,
+                newMessageText: action.newTextMessage,
+            };
+
 
         default:
             return state;

@@ -27,6 +27,7 @@ function Navbar(props) {
             Messages
           </NavLink>
         </li>
+
         <li className={s.item}>
           <NavLink to="/news" style={getStyleForNavLink}>
             News
@@ -38,10 +39,11 @@ function Navbar(props) {
           </NavLink>
         </li>
         <li className={s.item}>
-          <NavLink to="/settings" style={getStyleForNavLink}>
-            Settings
+          <NavLink to="/users" style={getStyleForNavLink}>
+            Users
           </NavLink>
         </li>
+
         <li className={s.item}>
           <NavLink to="/friends" style={getStyleForNavLink}>
             Friends
@@ -50,6 +52,11 @@ function Navbar(props) {
         <FriendsListContainer
         // store={props.store}
         />
+        <li className={s.item}>
+          <NavLink to="/settings" style={getStyleForNavLink}>
+            Settings
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
