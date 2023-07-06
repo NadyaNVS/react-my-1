@@ -1,83 +1,65 @@
 import React from 'react';
 import s from './Users.module.css';
+import axios from 'axios';
+import avatar from '../../assets/images/avatar.svg';
 
-const Users = (props) => {
-  let onFollowClick = (userId) => () => {
-    props.onFollow(userId);
-  };
-  let onUnfollowClick = (userId) => () => {
-    props.onUnfollow(userId);
-  };
+class Users extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (props.users.length === 0) {
-    props.onSetUsers([
-      {
-        id: 1,
-        avatar:
-          'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp',
-        followed: false,
-        fullName: 'Dmitry',
-        status: 'I am looking for a job',
-        location: {city: 'Minsk', country: 'Belarus'},
-      },
-      {
-        id: 2,
-        avatar:
-          'https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png',
-        followed: true,
-        fullName: 'Olga',
-        status: 'I like football',
-        location: {city: 'Moscow', country: 'Russia'},
-      },
-      {
-        id: 3,
-        avatar:
-          'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp',
-        followed: true,
-        fullName: 'Andrew',
-        status: "I'm on vacation",
-        location: {city: 'Philadelphia', country: 'United States'},
-      },
-      {
-        id: 4,
-        avatar:
-          'https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp',
-        followed: false,
-        fullName: 'Sergei',
-        status: "I'm a frontend developer",
-        location: {city: 'Minsk', country: 'Belarus'},
-      },
-    ]);
+    axios
+      .get('https://social-network.samuraijs.com/api/1.0/users')
+      .then((response) => {
+        this.props.onSetUsers(response.data.items);
+      });
   }
 
-  return (
-    <div>
-      {props.users.map((user) => (
-        <div key={user.id}>
-          <div className={s.followInfo}>
-            <div className={s.avatarWrapper}>
-              <img alt="" src={user.avatar} />
+  onFollowClick = (userId) => () => {
+    this.props.onFollow(userId);
+  };
+  onUnfollowClick = (userId) => () => {
+    this.props.onUnfollow(userId);
+  };
+
+  // getUsers = () => {
+
+  // };
+  render() {
+    return (
+      <div>
+        {/* <button onClick={this.getUsers}>getUsers</button> */}
+        {this.props.users.map((user) => (
+          <div key={user.id}>
+            <div className={s.followInfo}>
+              <div className={s.avatarWrapper}>
+                <img
+                  alt=""
+                  src={user.photos.small != null ? user.photos.small : avatar}
+                />
+              </div>
+              {user.followed ? (
+                <button onClick={this.onUnfollowClick(user.id)}>
+                  Unfollow
+                </button>
+              ) : (
+                <button onClick={this.onFollowClick(user.id)}>Follow</button>
+              )}
             </div>
-            {user.followed ? (
-              <button onClick={onUnfollowClick(user.id)}>Unfollow</button>
-            ) : (
-              <button onClick={onFollowClick(user.id)}>Follow</button>
-            )}
-          </div>
-          <div>
             <div>
-              <span>{user.fullName}</span>
-              <span>{user.status}</span>
-            </div>
-            <div>
-              <span>{user.location.country}</span>
-              <span>{user.location.city}</span>
+              <div>
+                <span>{user.name}</span>
+                <span>{user.status}</span>
+              </div>
+              <div>
+                <span>{'user.location.country'}</span>
+                <span>{'user.location.city'}</span>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-  );
-};
+        ))}
+      </div>
+    );
+  }
+}
 
 export default Users;
